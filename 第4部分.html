@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <!-- Page Title -->
+    <title> 你熬夜了吗？</title>
+    <!-- Bundle -->
+    <link rel="stylesheet" href="static/css/bundle.min.css">
+    <!-- Plugin Css -->
+    <link href="static/css/LineIcons.min.css" rel="stylesheet">
+    <link href="static/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/css/wow.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/cubeportfolio.min.css">
+    <link href="static/css/line-awesome.min.css" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/custom.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="static/js/bundle.min.js"></script>
+    <!-- Plugin Js -->
+    <script src="static/js/jquery.appear.js"></script>
+    <script src="static/js/jquery.fancybox.min.js"></script>
+    <script src="static/js/owl.carousel.min.js"></script>
+    <script src="static/js/wow.min.js"></script>
+    <script src="static/js/jquery.cubeportfolio.min.js"></script>
+    <!-- CUSTOM JS -->
+    <script src="static/js/contact_us.js"></script>
+    <script src="static/js/script.js"></script>
+    <!-- ECHARTS JS -->
+    <script src="static/js/echarts.min.js"></script>
+    <script src="static/js/purple-passion.js"></script>
+    <script src="static/js/vintage.js"></script>
+    <script src="static/js/jquery.js"></script>
+</head>
+
+<!-- Start 头部 -->
+<header>
+    <!--Navigation（导航）-->
+    <nav class="navbar navbar-top-default navbar-expand-lg navbar-simple nav-line">
+        <a href="javascript:void(0)" class="sidemenu_btn" id="sidemenu_toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        <div class="container-fluid">
+            <!--Nav Links(导航链接)-->
+            <div class="collapse navbar-collapse " id="megaone">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-link scroll" href="index.html">首页</a>
+                    <a class="nav-link scroll" href="第2部分.html">关于</a>
+                    <a class="nav-link scroll" href="第3部分.html">展示</a>
+                    <a class="nav-link scroll" href="第4部分.html">排名</a>
+                </div>
+            </div>
+    </nav>
+</header>
+<!-- End 头部 -->
+
+<!-- Start 第4部分 -->
+<section id="第4部分" style="height: 800px;background-color: rgb(255, 255, 255);">
+ <!-- 准备盒子 -->
+ <div id="main3" style="width:600px;height:600px;background-color:rgb(230, 230, 230);border-radius: 30px;position: absolute;left:50px"></div>
+ <div id="main4" style="width:800px;height:600px;background-color:rgb(230, 230, 230);border-radius: 30px;position: absolute;left:700px"></div>
+ <script>
+   // 初始化实例对象
+   var myChart3 = echarts.init(document.getElementById('main3'));
+   // 指定图表的配置项和数据
+   var option3 = {
+    title: {
+           text: '华为和小米两款手机对比',
+           left:'center',
+           top:20
+               },
+    legend: {
+           data: ['华为', '小米'],
+           orient:'v',
+           left:30,
+           top:'center'
+              },
+    radar: {
+      shape: 'circle',
+      center:['55%','55%'],
+      indicator: [
+         { name: '续航', max: 100 },
+         { name: '像素', max: 500 },
+         { name: '音质', max: 100 },
+         { name: '功能', max: 100 },
+         { name: '性价比', max: 100 },
+         { name: ' 外观', max: 100 }
+         ]
+      },
+    series: [
+     {
+      name: '华为VS小米',
+      type: 'radar',
+      data: [
+        {
+          value: [90, 300, 94, 97, 80, 99],
+          name: '华为'
+        },
+        {
+          value: [83, 80, 89, 80, 98, 92],
+          name: '小米'
+        }
+      ],
+      label:{
+        show:true
+      },
+      lineStyle:{
+        width:9
+      },
+     
+    },
+    
+  ]
+   };
+   // 使用刚指定的配置项和数据显示图表。
+   myChart3.setOption(option3);
+
+   // 初始化实例对象
+   var myChart4 = echarts.init(document.getElementById('main4'));
+   // 指定图表的配置项和数据
+    $.get('static/json/map/甘孜藏族自治州.json',function(geoJson) {
+        echarts.registerMap('甘孜藏族自治州地图',geoJson)
+        var option4={
+      title:{
+        text:'甘孜藏族自治州地图',
+        left:'center',
+        top:30
+      },
+       series: 
+         {
+            type: 'map',
+            map: '甘孜藏族自治州地图'
+            }
+       };
+      
+   // 使用刚指定的配置项和数据显示图表。
+   myChart4.setOption(option4);
+      })
+ </script>
+</section>
+<!-- End 第4部分 -->
+
+</body>
+</html>
